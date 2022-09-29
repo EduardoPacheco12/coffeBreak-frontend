@@ -10,6 +10,7 @@
 
 # production
 /build
+.wakatime-project
 
 # misc
 .DS_Store
