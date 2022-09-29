@@ -36,7 +36,7 @@ export default function Login() {
           />
           <input
             type="password"
-            placeholder="password"
+            placeholder="senha"
             max="20"
             disabled={loading ? true : false}
             onChange={(e) => setPassword(e.target.value)}
@@ -92,14 +92,14 @@ const Forms = styled.form`
     font-weight: 700;
     font-size: 22px;
     line-height: 33px;
-    color: #9f9f9f;
+    color: #bfa98e;
     padding-left: 15px;
     ::-webkit-input-placeholder {
       font-family: "Oswald";
       font-weight: 700;
       font-size: 22px;
       line-height: 33px;
-      color: #9f9f9f;
+      color: #bfa98e;
     }
   }
   button {
