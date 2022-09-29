@@ -11,6 +11,7 @@
 # production
 /build
 .wakatime-project
+.env
 
 # misc
 .DS_Store
