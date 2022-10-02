@@ -1,15 +1,21 @@
 import Logo from "../../assets/images/coffeBreak.png";
 import { Container, LeftInfo, RightInfo } from "./styles";
+import { useState } from "react";
 
 export default function NavBar() {
+  const userCoffeBreak = localStorage.getItem("userCoffeBreak");
+  const infoUsers = JSON.parse(userCoffeBreak);
+  const [userPhoto, setUserPhoto] = useState(infoUsers.pictureUrl);
+  const [userIdentification, setUserIdentification] = useState(infoUsers.name);
+
   return (
     <Container>
       <LeftInfo>
         <img src={Logo} alt="Logo da Coffe Break" />
       </LeftInfo>
       <RightInfo>
-        <p>Bem vindo, Eduardo </p>
-        <img src="https://i.pinimg.com/originals/1d/4d/69/1d4d69c694c8ba1034c0e9552f457ecf.jpg" alt="" />
+        <p>Bem vindo, {userIdentification} </p>
+        <img src={userPhoto} alt="" />
       </RightInfo>
     </Container>
   );

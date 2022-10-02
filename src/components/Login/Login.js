@@ -40,9 +40,11 @@ export default function Login() {
   }
 
   useEffect(() => {
+    console.log("rodei");
     handleError();
     if (response !== undefined) {
-      localStorage.setItem("token", response);
+      const userProfile = JSON.stringify(response);
+      localStorage.setItem("userCoffeBreak", userProfile);
       setLoad(false);
       navigate("/home");
     }
