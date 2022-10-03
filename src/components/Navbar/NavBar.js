@@ -5,8 +5,8 @@ import { useState } from "react";
 export default function NavBar() {
   const userCoffeBreak = localStorage.getItem("userCoffeBreak");
   const infoUsers = JSON.parse(userCoffeBreak);
-  const [userPhoto, setUserPhoto] = useState(infoUsers.pictureUrl);
-  const [userIdentification, setUserIdentification] = useState(infoUsers.name);
+  const [userPhoto, setUserPhoto] = useState(infoUsers ? infoUsers.pictureUrl : "");
+  const [userIdentification, setUserIdentification] = useState(infoUsers ? infoUsers.name : "");
 
   return (
     <Container>
@@ -14,8 +14,8 @@ export default function NavBar() {
         <img src={Logo} alt="Logo da Coffe Break" />
       </LeftInfo>
       <RightInfo>
-        <p>Bem vindo, {userIdentification} </p>
-        <img src={userPhoto} alt="" />
+        {userIdentification !== "" ? <p>Bem vindo, {userIdentification}</p> : <></>}
+        {userPhoto !== "" ? <img src={userPhoto} alt="" /> : <></>}
       </RightInfo>
     </Container>
   );
