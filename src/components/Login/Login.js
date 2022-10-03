@@ -16,7 +16,6 @@ export default function Login() {
   function handleError() {
     if (!loading) {
       if (error !== "") {
-        console.log("entrou");
         const status = error?.response.status;
         switch (status) {
           case 401:
@@ -40,7 +39,6 @@ export default function Login() {
   }
 
   useEffect(() => {
-    console.log("rodei");
     handleError();
     if (response !== undefined) {
       const userProfile = JSON.stringify(response);
