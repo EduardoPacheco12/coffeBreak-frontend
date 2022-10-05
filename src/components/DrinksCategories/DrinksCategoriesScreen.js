@@ -1,6 +1,6 @@
 import { Container, Content, Buttons } from "./styles";
 import GlobalStyle from "../../assets/globalStyle";
-import Category from "./Category";
+import DrinkCategoryButton from "./DrinkCategoryButton";
 import { useAxios } from "../../hooks/useAxios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +37,6 @@ export default function DrinksCategoriesScreen() {
   useEffect(() => {
     handleError();
     if (response !== undefined) {
-      console.log(response);
       setDrinksCategories(response);
     }
   }, [loading]);
@@ -65,7 +64,7 @@ export default function DrinksCategoriesScreen() {
         <h3>Que tipo de bebida você deseja escolher:</h3>
         <Buttons>
           {drinksCategories.map((value) => (
-            <Category key={value.id} name={value.name} />
+            <DrinkCategoryButton key={value.id} name={value.name} />
           ))}
         </Buttons>
       </Content>

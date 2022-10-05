@@ -62,7 +62,7 @@ export default function HomeScreen() {
           <Link to="/categories/drink">
             <button>Bebidas</button>
           </Link>
-          <Link to="/categories/books">
+          <Link to="/categories/book">
             <button>Livros</button>
           </Link>
         </Buttons>
