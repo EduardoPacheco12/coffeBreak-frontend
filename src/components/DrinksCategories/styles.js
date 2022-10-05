@@ -24,9 +24,9 @@ export const Buttons = styled.div`
   align-items: center;
 
   button {
-    width: 240px;
-    height: 100px;
-    margin-top: 10vh;
+    width: 200px;
+    height: 80px;
+    margin-bottom: 10vh;
     font-family: "Roboto";
     font-size: 26px;
     background-color: #d5c1a8;

@@ -5,8 +5,9 @@ import Register from "./components/Register/Register";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import WithoutNav from "./components/Navbar/WithoutNav";
 import WithNav from "./components/Navbar/WithNav";
+import DrinksCategoriesScreen from "./components/DrinksCategories/DrinksCategoriesScreen";
+import BooksCategoriesScreen from "./components/BooksCategories/BooksCategoriesScreen";
 import "./assets/reset.css";
-import ProfileContext from "./contexts/ProfileContext";
 
 export default function App() {
   const [userPhoto, setUserPhoto] = useState("");
@@ -23,6 +24,8 @@ export default function App() {
 
         <Route element={<WithNav />}>
           <Route path="/home" element={<HomeScreen />} />
+          <Route path="/categories/drink" element={<DrinksCategoriesScreen />} />
+          <Route path="/categories/book" element={<BooksCategoriesScreen />} />
         </Route>
       </Routes>
     </BrowserRouter>

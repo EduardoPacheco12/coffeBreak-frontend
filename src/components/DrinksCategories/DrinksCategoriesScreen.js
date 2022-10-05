@@ -1,12 +1,14 @@
 import { Container, Content, Buttons } from "./styles";
 import GlobalStyle from "../../assets/globalStyle";
+import Category from "./Category";
 import { useAxios } from "../../hooks/useAxios";
-import { useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function HomeScreen() {
+export default function DrinksCategoriesScreen() {
   const navigate = useNavigate();
   const { response, error, loading, fetchData } = useAxios();
+  const [drinksCategories, setDrinksCategories] = useState([]);
 
   function handleError() {
     if (!loading) {
@@ -33,8 +35,11 @@ export default function HomeScreen() {
   }
 
   useEffect(() => {
-    console.log("entrei");
     handleError();
+    if (response !== undefined) {
+      console.log(response);
+      setDrinksCategories(response);
+    }
   }, [loading]);
 
   useEffect(() => {
@@ -47,7 +52,7 @@ export default function HomeScreen() {
 
     fetchData({
       method: "GET",
-      url: "/coffebreak/home/logged",
+      url: "/coffebreak/drinks/category/list",
       headers: { Authorization: token },
       data: {},
     });
@@ -57,14 +62,11 @@ export default function HomeScreen() {
     <Container>
       <GlobalStyle />
       <Content>
-        <h3>O que você deseja escolher:</h3>
+        <h3>Que tipo de bebida você deseja escolher:</h3>
         <Buttons>
-          <Link to="/categories/drink">
-            <button>Bebidas</button>
-          </Link>
-          <Link to="/categories/books">
-            <button>Livros</button>
-          </Link>
+          {drinksCategories.map((value) => (
+            <Category key={value.id} name={value.name} />
+          ))}
         </Buttons>
       </Content>
     </Container>
