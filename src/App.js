@@ -8,26 +8,30 @@ import WithNav from "./components/Navbar/WithNav";
 import DrinksCategoriesScreen from "./components/DrinksCategories/DrinksCategoriesScreen";
 import BooksCategoriesScreen from "./components/BooksCategories/BooksCategoriesScreen";
 import "./assets/reset.css";
+import DrinksScreen from "./components/Drinks/DrinksScreen";
+import DrinkContext from "./contexts/DrinkContext";
 
 export default function App() {
-  const [userPhoto, setUserPhoto] = useState("");
-  const [userIdentification, setUserIdentification] = useState("");
+  const [drinkCategoryNumber, setDrinkCategoryNumber] = useState(0);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<WithoutNav />}>
-          <Route path="/" element={<Navigate replace to="/sign-in" />} />
-          <Route path="/sign-in" element={<Login />} />
-          <Route path="/sign-up" element={<Register />} />
-        </Route>
+    <DrinkContext.Provider value={{ drinkCategoryNumber, setDrinkCategoryNumber }}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<WithoutNav />}>
+            <Route path="/" element={<Navigate replace to="/sign-in" />} />
+            <Route path="/sign-in" element={<Login />} />
+            <Route path="/sign-up" element={<Register />} />
+          </Route>
 
-        <Route element={<WithNav />}>
-          <Route path="/home" element={<HomeScreen />} />
-          <Route path="/categories/drink" element={<DrinksCategoriesScreen />} />
-          <Route path="/categories/book" element={<BooksCategoriesScreen />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          <Route element={<WithNav />}>
+            <Route path="/home" element={<HomeScreen />} />
+            <Route path="/categories/drink" element={<DrinksCategoriesScreen />} />
+            <Route path="/drinks/:id" element={<DrinksScreen />} />
+            <Route path="/categories/book" element={<BooksCategoriesScreen />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </DrinkContext.Provider>
   );
 }

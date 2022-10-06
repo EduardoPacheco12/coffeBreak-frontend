@@ -64,7 +64,7 @@ export default function DrinksCategoriesScreen() {
         <h3>Que tipo de bebida você deseja escolher:</h3>
         <Buttons>
           {drinksCategories.map((value) => (
-            <DrinkCategoryButton key={value.id} name={value.name} />
+            <DrinkCategoryButton key={value.id} id={value.id} name={value.name} />
           ))}
         </Buttons>
       </Content>
