@@ -1,13 +1,15 @@
+import { useState } from "react";
 import { DrinkContainer, Info, Name, Description, Price } from "./styles";
 
 export default function DrinkComponent(props) {
+  const [price, setPrice] = useState((props.price / 100).toFixed(2));
   return (
     <DrinkContainer>
-      <img src="https://static0.thegamerimages.com/wordpress/wp-content/uploads/2022/09/1580410881_5.png" alt="Foto de uma bebida" />
+      <img src={props.image} alt="Foto de uma bebida" />
       <Info>
-        <Name>Espresso</Name>
-        <Description>Café, Café, Café</Description>
-        <Price>R$15.00</Price>
+        <Name>{props.name}</Name>
+        <Description>{props.description}</Description>
+        <Price>R${price}</Price>
       </Info>
     </DrinkContainer>
   );
