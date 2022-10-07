@@ -21,7 +21,7 @@ export const RightInfo = styled.div`
   margin-right: 2vh;
   p {
     color: #ffffff;
-    font-family: "Oswald";
+    font-family: "Oregano";
     font-weight: 700;
     font-size: 16px;
     line-height: 25px;

@@ -82,7 +82,7 @@ export const Forms = styled.form`
 
 export const BackRegister = styled.p`
   padding: 0 75px;
-  font-family: "Lato";
+  font-family: "Oregano";
   text-align: center;
   font-weight: 400;
   font-size: 17px;

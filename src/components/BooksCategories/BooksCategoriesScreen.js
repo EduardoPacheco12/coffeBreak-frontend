@@ -64,7 +64,7 @@ export default function BooksCategoriesScreen() {
         <h3>Que tipo de livro você deseja escolher:</h3>
         <Buttons>
           {booksCategories.map((value) => (
-            <BookCategoryButton key={value.id} name={value.name} />
+            <BookCategoryButton key={value.id} id={value.id} name={value.name} />
           ))}
         </Buttons>
       </Content>

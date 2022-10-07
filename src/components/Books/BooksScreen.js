@@ -1,20 +1,20 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Container, Content, Options } from "./styles";
 import GlobalStyle from "../../assets/globalStyle";
 import { useAxios } from "../../hooks/useAxios";
-import DrinkComponent from "./DrinkComponent";
-import { Container, Content, Options } from "./styles";
+import BookComponent from "./BookComponent";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-function DrinkContent({ drinks }) {
-  if (drinks.length === 0) {
-    return <h3>Não há bebidas dessa categoria disponíveis no momento</h3>;
+function BookContent({ books }) {
+  if (books.length === 0) {
+    return <h3>Não há livros dessa categoria disponíveis no momento</h3>;
   } else {
     return (
       <>
-        <h3>Escolha a bebida que deseja comprar:</h3>
+        <h3>Escolha o livro que deseja alugar:</h3>
         <Options>
-          {drinks.map((value) => (
-            <DrinkComponent key={value.id} name={value.name} image={value.pictureUrl} description={value.description} price={value.price} />
+          {books.map((value) => (
+            <BookComponent key={value.id} name={value.name} image={value.pictureUrl} stockTotal={value.stockTotal} price={value.price} />
           ))}
         </Options>
       </>
@@ -22,10 +22,10 @@ function DrinkContent({ drinks }) {
   }
 }
 
-export default function DrinksScreen() {
+export default function BooksScreen() {
   const navigate = useNavigate();
   const { response, error, loading, fetchData } = useAxios();
-  const [drinks, setDrinks] = useState([]);
+  const [books, setBooks] = useState([]);
   const params = useParams();
 
   function handleError() {
@@ -34,15 +34,15 @@ export default function DrinksScreen() {
         const status = error?.response.status;
         switch (status) {
           case 401:
-            alert("Your connection has timed out, please try again");
+            alert("Sua conexão expirou, tente novamente");
             navigate("/");
             break;
           case 404:
-            alert("Category of drinks not found");
-            navigate("/categories/drink");
+            alert("Categoria de livros não encontrada");
+            navigate("/categories/book");
             break;
           case 500:
-            alert("Server Error!!!");
+            alert("Erro de Servidor!!!");
             navigate("/");
             break;
           default:
@@ -55,7 +55,7 @@ export default function DrinksScreen() {
   useEffect(() => {
     handleError();
     if (response !== undefined) {
-      setDrinks(response);
+      setBooks(response);
     }
   }, [loading]);
 
@@ -69,7 +69,7 @@ export default function DrinksScreen() {
 
     fetchData({
       method: "GET",
-      url: `/coffebreak/drinks/category/list/${params.id}`,
+      url: `/coffebreak/books/category/list/${params.id}`,
       headers: { Authorization: token },
       data: {},
     });
@@ -79,7 +79,7 @@ export default function DrinksScreen() {
     <Container>
       <GlobalStyle />
       <Content>
-        <DrinkContent drinks={drinks} />
+        <BookContent books={books} />
       </Content>
     </Container>
   );

@@ -8,7 +8,8 @@ export const Content = styled.div`
   flex-direction: column;
   margin-bottom: 10vh;
   @media (max-width: 767px) {
-    margin-bottom: 0;
+    margin-bottom: 5vh;
+    margin-bottom: 5vh;
   }
 `;
 
@@ -81,7 +82,7 @@ export const Forms = styled.form`
 
 export const BackLogin = styled.p`
   padding: 0 75px;
-  font-family: "Lato";
+  font-family: "Oregano";
   text-align: center;
   font-weight: 400;
   font-size: 17px;

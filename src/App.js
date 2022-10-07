@@ -10,6 +10,7 @@ import BooksCategoriesScreen from "./components/BooksCategories/BooksCategoriesS
 import "./assets/reset.css";
 import DrinksScreen from "./components/Drinks/DrinksScreen";
 import DrinkContext from "./contexts/DrinkContext";
+import BooksScreen from "./components/Books/BooksScreen";
 
 export default function App() {
   const [drinkCategoryNumber, setDrinkCategoryNumber] = useState(0);
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/categories/drink" element={<DrinksCategoriesScreen />} />
             <Route path="/drinks/:id" element={<DrinksScreen />} />
             <Route path="/categories/book" element={<BooksCategoriesScreen />} />
+            <Route path="/books/:id" element={<BooksScreen />} />
           </Route>
         </Routes>
       </BrowserRouter>
