@@ -21,7 +21,7 @@ export default function Register() {
         const status = error?.response.status;
         switch (status) {
           case 409:
-            alert("This email already exists, please try again");
+            alert("Este e-mail já existe, tente novamente");
             setUsername("");
             setEmail("");
             setPassword("");
@@ -29,11 +29,11 @@ export default function Register() {
             setLoad(false);
             break;
           case 422:
-            alert("Please fill in all fields");
+            alert("Por favor preencha os campos corretamente");
             setLoad(false);
             break;
           case 500:
-            alert("Server Error!!!");
+            alert("Erro de servidor!!!");
             setUsername("");
             setEmail("");
             setPassword("");

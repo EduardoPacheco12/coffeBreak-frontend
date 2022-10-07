@@ -19,15 +19,15 @@ export default function Login() {
         const status = error?.response.status;
         switch (status) {
           case 401:
-            alert("Email or password is incorrect, please try again");
+            alert("O e-mail ou a senha estão incorretos, tente novamente");
             setEmail("");
             setPassword("");
             break;
           case 422:
-            alert("Please fill in all fields");
+            alert("Por favor preencha os campos corretamente");
             break;
           case 500:
-            alert("Server Error!!!");
+            alert("Erro do servidor!!!");
             setEmail("");
             setPassword("");
             break;

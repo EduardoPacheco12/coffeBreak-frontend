@@ -16,15 +16,11 @@ export default function BooksCategoriesScreen() {
         const status = error?.response.status;
         switch (status) {
           case 401:
-            alert("Your connection has timed out, please try again");
-            navigate("/");
-            break;
-          case 404:
-            alert("Your connection has lost, please try again");
+            alert("Sua conexão expirou, por favor tente novamente");
             navigate("/");
             break;
           case 500:
-            alert("Server Error!!!");
+            alert("Erro de servidor!!!");
             navigate("/");
             break;
           default:
