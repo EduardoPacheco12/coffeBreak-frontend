@@ -8,7 +8,7 @@ export default function BookComponent(props) {
       <img src={props.image} alt="Foto de um livro" />
       <Info>
         <Name>{props.name}</Name>
-        <Stock>Estoque: {props.stockTotal}</Stock>
+        <Stock>Estoque: {props.totalStock}</Stock>
         <Price>R${price}</Price>
       </Info>
     </BookContainer>
