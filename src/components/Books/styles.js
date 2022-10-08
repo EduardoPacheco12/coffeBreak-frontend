@@ -26,15 +26,16 @@ export const Options = styled.div`
 
 export const BookContainer = styled.div`
   width: 170px;
-  height: 270px;
+  height: 290px;
   background-color: #d5c1a8;
   border: 5px solid #d5c1a8;
+  margin-bottom: 5vh;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   img {
     width: 150px;
-    height: 160px;
+    height: 180px;
     border-radius: 10px;
     display: flex;
     align-self: center;

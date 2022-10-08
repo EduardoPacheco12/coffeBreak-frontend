@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   h3 {
     margin-top: 10vh;
-    font-family: "Roboto";
+    font-family: "Oregano";
     font-size: 26px;
     color: #ffffff;
     font-weight: 700;
@@ -27,7 +27,7 @@ export const Buttons = styled.div`
     width: 200px;
     height: 80px;
     margin-bottom: 10vh;
-    font-family: "Roboto";
+    font-family: "Oregano";
     font-size: 26px;
     background-color: #d5c1a8;
     border: 5px solid #d5c1a8;

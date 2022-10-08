@@ -29,6 +29,7 @@ export const DrinkContainer = styled.div`
   height: 250px;
   background-color: #d5c1a8;
   border: 5px solid #d5c1a8;
+  margin-bottom: 5vh;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
