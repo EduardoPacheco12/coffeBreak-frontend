@@ -9,14 +9,13 @@ import DrinksCategoriesScreen from "./components/DrinksCategories/DrinksCategori
 import BooksCategoriesScreen from "./components/BooksCategories/BooksCategoriesScreen";
 import "./assets/reset.css";
 import DrinksScreen from "./components/Drinks/DrinksScreen";
-import DrinkContext from "./contexts/DrinkContext";
 import BooksScreen from "./components/Books/BooksScreen";
+import MenuContext from "./contexts/MenuContext";
 
 export default function App() {
-  const [drinkCategoryNumber, setDrinkCategoryNumber] = useState(0);
-
+  const [menuInfo, setMenuInfo] = useState(false);
   return (
-    <DrinkContext.Provider value={{ drinkCategoryNumber, setDrinkCategoryNumber }}>
+    <MenuContext.Provider value={{ menuInfo, setMenuInfo }}>
       <BrowserRouter>
         <Routes>
           <Route element={<WithoutNav />}>
@@ -34,6 +33,6 @@ export default function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </DrinkContext.Provider>
+    </MenuContext.Provider>
   );
 }
