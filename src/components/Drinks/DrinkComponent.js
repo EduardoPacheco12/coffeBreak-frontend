@@ -38,7 +38,7 @@ export default function DrinkComponent(props) {
     }
   }, [loading]);
 
-  function sendDrinktoCart() {
+  function sendDrinkToCart() {
     if (window.confirm("Você quer adicionar esse item no seu carrinho?")) {
       const userCoffeBreak = localStorage.getItem("userCoffeBreak");
       const infoUsers = JSON.parse(userCoffeBreak);
@@ -57,7 +57,7 @@ export default function DrinkComponent(props) {
   }
 
   return (
-    <DrinkContainer onClick={sendDrinktoCart}>
+    <DrinkContainer onClick={sendDrinkToCart}>
       <img src={props.image} alt="Foto de uma bebida" />
       <Info>
         <Name>{props.name}</Name>

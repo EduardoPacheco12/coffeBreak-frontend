@@ -14,7 +14,14 @@ function BookContent({ books }) {
         <h3>Escolha o livro que deseja alugar:</h3>
         <Options>
           {books.map((value) => (
-            <BookComponent key={value.id} name={value.name} image={value.pictureUrl} totalStock={value.totalStock} price={value.price} />
+            <BookComponent
+              key={value.id}
+              id={value.id}
+              name={value.name}
+              image={value.pictureUrl}
+              totalStock={value.totalStock}
+              price={value.price}
+            />
           ))}
         </Options>
       </>
