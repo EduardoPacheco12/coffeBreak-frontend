@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./assets/reset.css";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
@@ -7,32 +8,39 @@ import WithoutNav from "./components/Navbar/WithoutNav";
 import WithNav from "./components/Navbar/WithNav";
 import DrinksCategoriesScreen from "./components/DrinksCategories/DrinksCategoriesScreen";
 import BooksCategoriesScreen from "./components/BooksCategories/BooksCategoriesScreen";
-import "./assets/reset.css";
+import CartScreen from "./components/Cart/CartScreen";
 import DrinksScreen from "./components/Drinks/DrinksScreen";
 import BooksScreen from "./components/Books/BooksScreen";
 import MenuContext from "./contexts/MenuContext";
+import CartContext from "./contexts/CartContext";
 
 export default function App() {
   const [menuInfo, setMenuInfo] = useState(false);
-  return (
-    <MenuContext.Provider value={{ menuInfo, setMenuInfo }}>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<WithoutNav />}>
-            <Route path="/" element={<Navigate replace to="/sign-in" />} />
-            <Route path="/sign-in" element={<Login />} />
-            <Route path="/sign-up" element={<Register />} />
-          </Route>
+  const [drinkCart, setDrinkCart] = useState([]);
+  const [bookCart, setBookCart] = useState([]);
 
-          <Route element={<WithNav />}>
-            <Route path="/home" element={<HomeScreen />} />
-            <Route path="/categories/drink" element={<DrinksCategoriesScreen />} />
-            <Route path="/drinks/:id" element={<DrinksScreen />} />
-            <Route path="/categories/book" element={<BooksCategoriesScreen />} />
-            <Route path="/books/:id" element={<BooksScreen />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </MenuContext.Provider>
+  return (
+    <CartContext.Provider value={{ drinkCart, setDrinkCart, bookCart, setBookCart }}>
+      <MenuContext.Provider value={{ menuInfo, setMenuInfo }}>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<WithoutNav />}>
+              <Route path="/" element={<Navigate replace to="/sign-in" />} />
+              <Route path="/sign-in" element={<Login />} />
+              <Route path="/sign-up" element={<Register />} />
+            </Route>
+
+            <Route element={<WithNav />}>
+              <Route path="/cart" element={<CartScreen />} />
+              <Route path="/home" element={<HomeScreen />} />
+              <Route path="/categories/drink" element={<DrinksCategoriesScreen />} />
+              <Route path="/drinks/:id" element={<DrinksScreen />} />
+              <Route path="/categories/book" element={<BooksCategoriesScreen />} />
+              <Route path="/books/:id" element={<BooksScreen />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </MenuContext.Provider>
+    </CartContext.Provider>
   );
 }

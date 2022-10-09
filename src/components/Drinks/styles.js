@@ -33,6 +33,12 @@ export const DrinkContainer = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  &:hover {
+    cursor: pointer;
+    p {
+      color: #ffffff;
+    }
+  }
   img {
     width: 175px;
     height: 140px;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   background-color: #47362e;
@@ -33,6 +34,9 @@ export const RightInfo = styled.div`
     width: 50px;
     height: 50px;
     border-radius: 25px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -52,5 +56,13 @@ export const UserInfo = styled.div`
     padding-right: 15px;
     padding-left: 10px;
     padding-bottom: 5px;
+    &:hover {
+      cursor: pointer;
+      color: #000000;
+    }
   }
+`;
+
+export const Click = styled(Link)`
+  text-decoration: none;
 `;

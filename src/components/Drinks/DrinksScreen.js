@@ -14,7 +14,14 @@ function DrinkContent({ drinks }) {
         <h3>Escolha a bebida que deseja comprar:</h3>
         <Options>
           {drinks.map((value) => (
-            <DrinkComponent key={value.id} name={value.name} image={value.pictureUrl} description={value.description} price={value.price} />
+            <DrinkComponent
+              key={value.id}
+              id={value.id}
+              name={value.name}
+              image={value.pictureUrl}
+              description={value.description}
+              price={value.price}
+            />
           ))}
         </Options>
       </>

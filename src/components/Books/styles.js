@@ -33,6 +33,12 @@ export const BookContainer = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  &:hover {
+    cursor: pointer;
+    p {
+      color: #ffffff;
+    }
+  }
   img {
     width: 150px;
     height: 180px;

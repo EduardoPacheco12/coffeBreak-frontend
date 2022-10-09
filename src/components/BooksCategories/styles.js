@@ -34,5 +34,9 @@ export const Buttons = styled.div`
     border-radius: 10px;
     color: #000000;
     font-weight: 700;
+    &:hover {
+      cursor: pointer;
+      color: #ffffff;
+    }
   }
 `;

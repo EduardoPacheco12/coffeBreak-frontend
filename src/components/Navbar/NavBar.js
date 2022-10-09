@@ -1,19 +1,31 @@
 import Logo from "../../assets/images/coffeBreak.png";
-import { Container, LeftInfo, RightInfo, UserInfo } from "./styles";
+import { Container, LeftInfo, RightInfo, UserInfo, Click } from "./styles";
 import { useContext, useState } from "react";
 import MenuContext from "../../contexts/MenuContext";
+import { useNavigate } from "react-router-dom";
 
-function InfoUsers({ menuInfo }) {
+function InfoUsers({ menuInfo, setMenuInfo }) {
+  const navigate = useNavigate();
+
+  function goCart() {
+    setMenuInfo(!menuInfo);
+    navigate("/cart");
+  }
+
+  function finishSession() {
+    setMenuInfo(!menuInfo);
+    localStorage.removeItem("userCoffeBreak");
+    navigate("/");
+  }
+
   if (menuInfo === false) {
     return <></>;
   } else {
     return (
       <UserInfo>
-        <p>Carrinho</p>
-
+        <p onClick={goCart}>Carrinho</p>
         <p>Meus livros alugados</p>
-
-        <p>Sair</p>
+        <p onClick={finishSession}>Sair</p>
       </UserInfo>
     );
   }
@@ -39,7 +51,7 @@ export default function NavBar() {
         {userIdentification !== "" ? <p>Bem vindo, {userIdentification}</p> : <></>}
         {userPhoto !== "" ? <img onClick={showMenuInfo} src={userPhoto} alt="" /> : <></>}
       </RightInfo>
-      <InfoUsers menuInfo={menuInfo} />
+      <InfoUsers menuInfo={menuInfo} setMenuInfo={setMenuInfo} />
     </Container>
   );
 }
