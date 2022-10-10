@@ -23,6 +23,11 @@ export default function Login() {
             setEmail("");
             setPassword("");
             break;
+          case 404:
+            alert("O e-mail ou a senha estão incorretos, tente novamente");
+            setEmail("");
+            setPassword("");
+            break;
           case 422:
             alert("Por favor preencha os campos corretamente");
             break;
