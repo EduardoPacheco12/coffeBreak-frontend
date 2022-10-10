@@ -42,6 +42,7 @@ export default function BooksScreen() {
         switch (status) {
           case 401:
             alert("Sua conexão expirou, tente novamente");
+            localStorage.removeItem("userCoffeBreak");
             navigate("/");
             break;
           case 404:
@@ -50,6 +51,7 @@ export default function BooksScreen() {
             break;
           case 500:
             alert("Erro de Servidor!!!");
+            localStorage.removeItem("userCoffeBreak");
             navigate("/");
             break;
           default:

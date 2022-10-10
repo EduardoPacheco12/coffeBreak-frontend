@@ -42,6 +42,7 @@ export default function DrinksScreen() {
         switch (status) {
           case 401:
             alert("Sua conexão expirou, por favor tente novamente");
+            localStorage.removeItem("userCoffeBreak");
             navigate("/");
             break;
           case 404:
@@ -50,6 +51,7 @@ export default function DrinksScreen() {
             break;
           case 500:
             alert("Erro de servidor!!!");
+            localStorage.removeItem("userCoffeBreak");
             navigate("/");
             break;
           default:

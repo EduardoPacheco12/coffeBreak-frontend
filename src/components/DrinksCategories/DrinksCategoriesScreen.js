@@ -17,10 +17,12 @@ export default function DrinksCategoriesScreen() {
         switch (status) {
           case 401:
             alert("Sua conexão expirou, por favor tente novamente");
+            localStorage.removeItem("userCoffeBreak");
             navigate("/");
             break;
           case 500:
             alert("Erro de Servidor!!!");
+            localStorage.removeItem("userCoffeBreak");
             navigate("/");
             break;
           default:
