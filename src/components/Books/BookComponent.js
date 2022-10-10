@@ -46,6 +46,7 @@ export default function BookComponent(props) {
 
   function sendBookToCart() {
     if (window.confirm("Você quer adicionar esse item no seu carrinho?")) {
+      const rentedDays = prompt("Por quantos dias você deseja alugar o livro?");
       const userCoffeBreak = localStorage.getItem("userCoffeBreak");
       const infoUsers = JSON.parse(userCoffeBreak);
       let token = "";
@@ -57,7 +58,7 @@ export default function BookComponent(props) {
         method: "POST",
         url: `/coffebreak/book/${props.id}`,
         headers: { Authorization: token },
-        data: {},
+        data: { rentedDays },
       });
     }
   }
