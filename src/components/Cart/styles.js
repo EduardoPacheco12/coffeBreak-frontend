@@ -86,7 +86,7 @@ export const Drink = styled.div`
 `;
 
 export const Cancel = styled(GiCancel)`
-  color: red;
+  color: #8c501c;
   font-size: 25px;
   position: absolute;
   right: -5px;
