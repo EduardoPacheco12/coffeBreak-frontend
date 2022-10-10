@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   h3 {
     margin-top: 10vh;
+    margin-top: 18vh;
     font-family: "Oregano";
     font-size: 30px;
     color: #ffffff;
@@ -18,6 +19,7 @@ export const Content = styled.div`
 `;
 
 export const Options = styled.div`
+  margin-bottom: 35vh;
   @media (min-width: 1024px) {
     display: flex;
     justify-content: space-between;
@@ -93,5 +95,37 @@ export const Cancel = styled(GiCancel)`
   top: -13px;
   &:hover {
     cursor: pointer;
+  }
+`;
+
+export const Result = styled.div`
+  position: fixed;
+  background-color: #d5c1a8;
+  height: 15vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  p {
+    font-family: "Oregano";
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+  button {
+    height: 40px;
+    background-color: #8c501c;
+    border: 1px solid #8c501c;
+    font-family: "Oregano";
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 700;
+    &:hover {
+      cursor: pointer;
+      color: #000000;
+    }
   }
 `;
