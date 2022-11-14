@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import GlobalStyle from "../../assets/globalStyle";
 import Logo from "../../assets/images/coffeBreak.png";
 import UserContext from "../../contexts/UserContext";
@@ -8,7 +9,6 @@ import Image from "../../components/Auth/Image";
 import AuthInput from "../../components/Auth/AuthInput";
 import AuthButton from "../../components/Auth/AuthButton";
 import AuthSwitchPage from "../../components/Auth/AuthSwitchPage";
-import axios from "axios";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -18,22 +18,17 @@ export default function Login() {
   const { userData } = useContext(UserContext);
   const { token } = userData;
 
-  function FinishLogin(e) {
+  const FinishLogin = (e) => {
     e.preventDefault();
     setLoad(true);
     const body = {
       email,
       password,
     };
-    const auth = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
     const url = `${process.env.REACT_APP_API_BASE_URL}/coffebreak/sign-in`;
 
     axios
-      .post(url, body, auth)
+      .post(url, body)
       .then((res) => {
         const userProfile = JSON.stringify(res.data);
         localStorage.setItem("userCoffeBreak", userProfile);
@@ -41,9 +36,33 @@ export default function Login() {
         navigate("/home");
       })
       .catch((err) => {
-        console.log(err);
+        setLoad(false);
+        const status = err?.response.status;
+        switch (status) {
+          case 401:
+            alert("Email ou senha incorreta, tente novamente");
+            setLoad(false);
+            break;
+          case 404:
+            alert("Email ou senha incorreta, tente novamente");
+            setLoad(false);
+            break;
+          case 422:
+            alert("Por favor preencha os campos corretamente");
+            setLoad(false);
+            break;
+          case 500:
+            alert("Erro de servidor!!!");
+            setEmail("");
+            setPassword("");
+            setLoad(false);
+            break;
+          default:
+            setLoad(false);
+            break;
+        }
       });
-  }
+  };
 
   return (
     <>
