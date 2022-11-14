@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./assets/reset.css";
 import Login from "./pages/Login";
-import Register from "./components/Register/Register";
+import Register from "./pages/Register";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import WithoutNav from "./components/Navbar/WithoutNav";
 import WithNav from "./components/Navbar/WithNav";
