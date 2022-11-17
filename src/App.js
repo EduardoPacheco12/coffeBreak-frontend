@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import WithoutNav from "./components/Navbar/WithoutNav";
 import WithNav from "./components/Navbar/WithNav";
 import DrinksCategoriesScreen from "./components/DrinksCategories/DrinksCategoriesScreen";
-import BooksCategoriesScreen from "./components/BooksCategories/BooksCategoriesScreen";
+import BooksCategories from "./pages/Categories/Books";
 import CartScreen from "./components/Cart/CartScreen";
 import DrinksScreen from "./components/Drinks/DrinksScreen";
 import BooksScreen from "./components/Books/BooksScreen";
@@ -37,7 +37,7 @@ export default function App() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/categories/drink" element={<DrinksCategoriesScreen />} />
                 <Route path="/drinks/:id" element={<DrinksScreen />} />
-                <Route path="/categories/book" element={<BooksCategoriesScreen />} />
+                <Route path="/categories/book" element={<BooksCategories />} />
                 <Route path="/books/:id" element={<BooksScreen />} />
               </Route>
             </Routes>
