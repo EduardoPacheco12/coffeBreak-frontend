@@ -15,8 +15,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [load, setLoad] = useState(false);
   const navigate = useNavigate();
-  const { userData } = useContext(UserContext);
-  const { token } = userData;
+  const { setUserData } = useContext(UserContext);
 
   const FinishLogin = (e) => {
     e.preventDefault();
@@ -30,8 +29,7 @@ export default function Login() {
     axios
       .post(url, body)
       .then((res) => {
-        const userProfile = JSON.stringify(res.data);
-        localStorage.setItem("userCoffeBreak", userProfile);
+        setUserData(res.data);
         setLoad(false);
         navigate("/home");
       })
