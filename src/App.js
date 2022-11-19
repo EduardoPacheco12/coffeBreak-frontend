@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import WithoutNav from "./components/Navbar/WithoutNav";
 import WithNav from "./components/Navbar/WithNav";
-import DrinksCategoriesScreen from "./components/DrinksCategories/DrinksCategoriesScreen";
+import DrinksCategories from "./pages/Categories/Drinks";
 import BooksCategories from "./pages/Categories/Books";
 import CartScreen from "./components/Cart/CartScreen";
 import DrinksScreen from "./components/Drinks/DrinksScreen";
@@ -35,7 +35,7 @@ export default function App() {
               <Route element={<WithNav />}>
                 <Route path="/cart" element={<CartScreen />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/categories/drink" element={<DrinksCategoriesScreen />} />
+                <Route path="/categories/drink" element={<DrinksCategories />} />
                 <Route path="/drinks/:id" element={<DrinksScreen />} />
                 <Route path="/categories/book" element={<BooksCategories />} />
                 <Route path="/books/:id" element={<BooksScreen />} />

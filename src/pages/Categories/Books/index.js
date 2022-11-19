@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import GlobalStyle from "../../../assets/globalStyle";
 import UserContext from "../../../contexts/UserContext";
-import Text from "../../../components/Home/Text";
-import CategoryButton from "../../../components/Home/Categories/CategoryButton";
+import Text from "../../../components/GeneralComponents/Text";
+import CategoryButton from "../../../components/Categories/CategoryButton";
 
 export default function BooksCategories() {
   const navigate = useNavigate();
