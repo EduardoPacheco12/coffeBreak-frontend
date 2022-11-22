@@ -10,7 +10,7 @@ import DrinksCategories from "./pages/Categories/Drinks";
 import BooksCategories from "./pages/Categories/Books";
 import Cart from "./pages/Cart";
 import DrinksScreen from "./components/Drinks/DrinksScreen";
-import BooksScreen from "./components/Books/BooksScreen";
+import Books from "./pages/Books";
 import MenuContext from "./contexts/MenuContext";
 import CartContext from "./contexts/CartContext";
 import { UserProvider } from "./contexts/UserContext";
@@ -38,7 +38,7 @@ export default function App() {
                 <Route path="/categories/drink" element={<DrinksCategories />} />
                 <Route path="/drinks/:id" element={<DrinksScreen />} />
                 <Route path="/categories/book" element={<BooksCategories />} />
-                <Route path="/books/:id" element={<BooksScreen />} />
+                <Route path="/books/:id" element={<Books />} />
               </Route>
             </Routes>
           </BrowserRouter>
