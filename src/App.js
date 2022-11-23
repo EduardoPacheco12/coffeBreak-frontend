@@ -9,7 +9,7 @@ import WithNav from "./components/Navbar/WithNav";
 import DrinksCategories from "./pages/Categories/Drinks";
 import BooksCategories from "./pages/Categories/Books";
 import Cart from "./pages/Cart";
-import DrinksScreen from "./components/Drinks/DrinksScreen";
+import Drinks from "./pages/Drinks";
 import Books from "./pages/Books";
 import MenuContext from "./contexts/MenuContext";
 import CartContext from "./contexts/CartContext";
@@ -36,7 +36,7 @@ export default function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/categories/drink" element={<DrinksCategories />} />
-                <Route path="/drinks/:id" element={<DrinksScreen />} />
+                <Route path="/drinks/:id" element={<Drinks />} />
                 <Route path="/categories/book" element={<BooksCategories />} />
                 <Route path="/books/:id" element={<Books />} />
               </Route>
